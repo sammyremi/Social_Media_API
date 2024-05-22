@@ -1,24 +1,49 @@
-# README
+##### Prerequisites
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The setups steps expect following tools installed on the system.
 
-Things you may want to cover:
+- Github
+- Ruby [3.2.2](https://github.com/sammyremi/Social_Media_API)
+- Rails [7.1.3]
+- Postgresql [14]
 
-* Ruby version
+##### 1. Check out the repository
 
-* System dependencies
+```bash
+git clone https://github.com/sammyremi/Social_Media_API.git
+```
 
-* Configuration
+##### 2. Create database.yml file
 
-* Database creation
+open database.yml file and edit the database configuration as required.
+configure as required for your postgresql database.
 
-* Database initialization
+```bash
+    config/database.yml
 
-* How to run the test suite
+    username:
+    password:
+    host:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
 
-* Deployment instructions
 
-* ...
+##### 3. Create and setup the database
+
+Run the following commands to create and setup the database and migration.
+
+```ruby
+bundle install
+rails db:create
+rails db:migrate
+```
+
+##### 4. Start the Rails server
+
+You can start the rails server using the command given below.
+
+```ruby
+rails s
+```
+
+And now you can visit the site with the URL http://localhost:3000
