@@ -5,7 +5,7 @@ class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   skip_before_action :verify_signed_out_user, only: [:destroy]
 
-
+  # destroy user active session if user signed in
   def destroy
 
     if user_signed_in?
@@ -18,11 +18,13 @@ class Users::SessionsController < Devise::SessionsController
 
   private
 
+  # respond success on a successful signin
   def respond_with(resource, options = {})
     render json: { status: { message: "signed in successfully", data: resource}}, status: :ok
-    
   end
 
+  
+  #verify if jwt token present then verify token if still valid, signout user 
   def verify_user_token_and_logout
     if request.headers['Authorization'].present?
       begin

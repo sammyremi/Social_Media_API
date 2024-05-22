@@ -6,6 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
   private 
 
+  # render json response for created user 
   def respond_with(resource, options = {})
     if resource.persisted?
       render json: {status: {message: "user created succesfully", code: 201, user: resource}}
