@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
     before_action :authenticate_user!
+    before_action :find_post, only: [:destroy, :update]
 
     def index
-        @posts = Post.where(:id[current_user.id])
+        @posts = Post.where(user_id: current_user.id)
+        render json: @posts, status: :ok
     end
 
     def create
