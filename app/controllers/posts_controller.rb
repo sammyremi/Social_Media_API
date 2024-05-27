@@ -1,9 +1,8 @@
 class PostsController < ApplicationController
-
-    respond_to :json
+    before_action :authenticate_user!
 
     def index
-        @posts = Post.all
+        @posts = Post.where(:id[current_user.id])
     end
 
     def create
@@ -21,9 +20,18 @@ class PostsController < ApplicationController
 
 
     def update
+        if @post.update(post_params)
+            render json: { message: "Post updated successfully", post: @post }, status: :ok
+        else
+            render json: { message: @post.errors.full_messages }, status: :unprocessable_entity
+        end
     end
 
     def destroy
+        @post = find_post
+        if @post.destroy
+            render json: {message: "Post Deleted"}, status: :ok
+        end
     end
 
 
@@ -34,7 +42,7 @@ class PostsController < ApplicationController
         params.require(:post).permit(:title, :id, :user_id)
     end
 
-    def set_post_id
+    def find_post
         @post = Post.find(post_params[:id])
     end
 
