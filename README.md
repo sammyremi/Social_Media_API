@@ -33,6 +33,7 @@ configure as required for your postgresql database.
 Run the following commands to create and setup the database and migration.
 
 ```ruby
+rails credentials:edit
 bundle install
 rails db:create
 rails db:migrate
