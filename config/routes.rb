@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post "/profile/:id/follow", to: 'profile#follow', as: 'follow'
   post "/profile/:id/accept", to: 'profile#accept', as: 'accept'
   post "/profile/:id/decline", to: 'profile#decline', as: 'decline'
+  post "/profile/:id/unfollow", to: 'profile#unfollow', as: 'unfollow'
+  post "/profile/:id/remove_request", to: 'profile#remove_request', as: 'remove_request'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

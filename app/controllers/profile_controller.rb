@@ -29,6 +29,10 @@ class ProfileController < ApplicationController
         render json: {meassage: "You unfollowed #{@user.email}"}, status: :ok
     end
 
+    def remove_request
+        current_user.remove_follow_request_for(@user)
+        render json: {meassage: "You cancel request to follow #{@user.email}"}, status: :ok
+    end
     
 
     private
