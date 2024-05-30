@@ -15,6 +15,12 @@ class ProfileController < ApplicationController
         render json: {meassage: "You are now following #{@user.email}"}, status: :ok
     end
 
+    def decline
+        current_user.decline_follow_request_of(@user)
+        render json: {meassage: "You decline #{@user.email} request"}, status: :ok
+    end
+
+    
 
     private
 
