@@ -10,8 +10,9 @@ class ProfileController < ApplicationController
 
 
     def follow
-        current_user.send_follow_request_to(@user) if current_user
-        render json: {message: " #{current_user.email} sent follow request sent to #{@user.email}"}, status: :ok
+        current_user.send_follow_request_to(@user)
+        @user.accept_follow_request_of(current_user)
+        render json: {message: " #{current_user.email} request sent and accepted by #{@user.email}"}, status: :ok
     end
 
     def accept
