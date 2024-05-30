@@ -4,6 +4,10 @@ class ProfileController < ApplicationController
 
     before_action :set_user
 
+    def show
+        render json: {user: @user}, status: :ok
+    end
+
 
     def follow
         current_user.send_follow_request_to(@user) if current_user

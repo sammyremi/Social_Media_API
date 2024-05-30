@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :posts
 
+  get "profile/:id", to: "profile#show"
+
   post "/profile/:id/follow", to: 'profile#follow', as: 'follow'
   post "/profile/:id/accept", to: 'profile#accept', as: 'accept'
   post "/profile/:id/decline", to: 'profile#decline', as: 'decline'
