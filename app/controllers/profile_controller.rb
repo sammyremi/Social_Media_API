@@ -6,10 +6,9 @@ class ProfileController < ApplicationController
 
 
     def follow
-        status = current_user.following?(@user)
-        render json: {message: status}
+        current_user.send_follow_request_to(@user)
+        render json: {message: " #{current_user.email} sent follow request sent to #{@user.email}"}, status: :ok
     end
-
 
     private
 
