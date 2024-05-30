@@ -20,6 +20,11 @@ class ProfileController < ApplicationController
         render json: {meassage: "You decline #{@user.email} request"}, status: :ok
     end
 
+    def unfollow
+        current_user.unfollow(@user)
+        render json: {meassage: "You unfollowed #{@user.email}"}, status: :ok
+    end
+
     
 
     private
