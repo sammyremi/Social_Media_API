@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'feeds/show'
+  get 'feed/show'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -9,6 +11,8 @@ Rails.application.routes.draw do
   resources :posts
 
   get "profile/:id", to: "profile#show"
+
+  get "feeds", to: "feeds#show"
 
   post "/profile/:id/follow", to: 'profile#follow', as: 'follow'
   post "/profile/:id/accept", to: 'profile#accept', as: 'accept'
