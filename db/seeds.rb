@@ -21,17 +21,17 @@
 #     end
 # end
 
-for x in 1..20 do
-    @user = User.find(x)
-    title = "second post by #{@user.email} created"
-    id = @user.id
-    @post = Post.create(title: title, user_id: id)
-    if @post.persisted?
-        puts "post created: #{@post.title}"
-    else
-        puts "Failed to create post: #{@user}"
-        puts @post.errors.full_messages
-    end
-end
+# for x in 5..15 do
+#     @user = User.find(x)
+#     title = "things to do  #{@user.email} created"
+#     id = @user.id
+#     @post = Post.create(title: title, user_id: id)
+#     if @post.persisted?
+#         puts "post created: #{@post.title}"
+#     else
+#         puts "Failed to create post: #{@user}"
+#         puts @post.errors.full_messages
+#     end
+# end
 
   
