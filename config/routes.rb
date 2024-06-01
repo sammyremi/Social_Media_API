@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get "profile/:id", to: "profile#show"
 
-  get "feeds", to: "feeds#show"
+  get "feeds", to: "feeds#index"
 
   post "/profile/:id/follow", to: 'profile#follow', as: 'follow'
   post "/profile/:id/accept", to: 'profile#accept', as: 'accept'

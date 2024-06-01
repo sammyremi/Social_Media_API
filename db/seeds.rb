@@ -9,7 +9,7 @@
 #   end
 
 
-# for x in 1..10 do
+# for x in 1..20 do
 #     email = "admin#{x}@g.com"
 #     @user = User.create(email: email, password: "123456", password_confirmation: "123456")
     
@@ -21,7 +21,7 @@
 #     end
 # end
 
-# for x in 5..15 do
+# for x in 1..15 do
 #     @user = User.find(x)
 #     title = "things to do  #{@user.email} created"
 #     id = @user.id

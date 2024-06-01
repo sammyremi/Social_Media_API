@@ -1,10 +1,14 @@
 class FeedsController < ApplicationController
   before_action :authenticate_user!
 
-  # find users current user is folloing and display posts as feeds
-  def show
-    @posts = current_user.following.map { |user| user.posts}
-    render json: {feeds: @posts}
+
+  # find users current_user is folloing and display posts as feeds
+# Controller
+  def index
+    @following_posts = current_user.following.map { |user| user.posts }.flatten
+    
+    render json: @following_posts.page(2)
   end
+
 
 end
