@@ -3,11 +3,17 @@ class FeedsController < ApplicationController
 
 
   # find users current_user is folloing and display posts as feeds
-# Controller
+# Controller 
+# paginate returned feeds with Kaminari paginate gem
   def index
     @following_posts = current_user.following.map { |user| user.posts }.flatten
+    @paginated_posts = Kaminari.paginate_array(@following_posts).page(params[:page]).per(params[:per_page] || 10)
     
-    render json: @following_posts.page(2)
+    render json: {
+      feeds: @paginated_posts
+    }
+
+ 
   end
 
 
