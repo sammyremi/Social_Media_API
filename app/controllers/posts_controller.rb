@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     before_action :authenticate_user!
-    before_action :find_post, only: [:destroy, :update]
+    before_action :find_post, only: [:destroy, :update, :show]
 
     def index
         @posts = Post.where(user_id: current_user.id)
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     end
 
     def show
-        @post = set_post_id
+        render json: {post: @post}
     end
 
 
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
     end
 
     def find_post
-        @post = current_user.posts.find(params[:id])
+        @post = Post.find(params[:id])
     end
 
     

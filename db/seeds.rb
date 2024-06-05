@@ -23,7 +23,7 @@
 
 # for x in 1..15 do
 #     @user = User.find(x)
-#     title = "things to do  #{@user.email} created"
+#     title = "last ports repairs for  #{@user.email} created"
 #     id = @user.id
 #     @post = Post.create(title: title, user_id: id)
 #     if @post.persisted?
