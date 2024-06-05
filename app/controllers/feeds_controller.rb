@@ -12,9 +12,5 @@ class FeedsController < ApplicationController
     render json: {
       feeds: @paginated_posts
     }
-
- 
   end
-
-
 end
