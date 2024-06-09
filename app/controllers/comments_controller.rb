@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     before_action :find_comment, only: [:update, :destroy]
 
     def index
-        render json: {comments: @post.comments}
+        render json: {comments: @post.comments}, status: :ok
     end
 
     def create

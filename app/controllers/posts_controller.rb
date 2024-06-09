@@ -3,7 +3,8 @@ class PostsController < ApplicationController
     before_action :find_post, only: [:destroy, :update, :show]
 
     def index
-        @posts = Post.where(user_id: current_user.id)
+        # @posts = Post.where(user_id: current_user.id)
+        @posts = Post.all
         render json: @posts, status: :ok
     end
 
