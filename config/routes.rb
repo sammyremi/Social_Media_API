@@ -7,13 +7,12 @@ Rails.application.routes.draw do
   }
 
   resources :posts do
-    resources :comments
+    resources :comments do
+      resources :likes, only: [:create, :destroy]
+    end
     resources :likes, only: [:create, :destroy]
   end
 
-  resource :comments do
-    resources :likes, only: [:create, :destroy]
-  end
 
   get "profile/:id", to: "profile#show"
 
