@@ -3,11 +3,11 @@ class LikesController < ApplicationController
     before_action :set_likeable
 
     def create
-        @like = Like.new(user: current_user.id, likeable: @like_item)
-
+        @like = Like.new(user: current_user, likeable: @like_item)
         if @like.save
-            render json: {}
+            render json: {response: "Like created successfully"}, status: :ok
         else
+            render json: {response: @like.errors.full_messages}, status: :unprocessable_entity
         end
     end
 
@@ -21,7 +21,6 @@ class LikesController < ApplicationController
     # end
 
     def set_likeable
-
         @post = Post.find(params[:post_id])
 
         @post_id = params[:post_id]
@@ -32,6 +31,10 @@ class LikesController < ApplicationController
         else
             @like_item = @post
         end
+    end
+
+    def find_like
+        
     end
 
     
