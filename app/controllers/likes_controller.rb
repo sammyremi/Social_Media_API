@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_likeable, only: [:create]
+    before_action :set_likeable
     before_action :find_like, only: [:destroy]
 
     #create like for post or comment if it does not exist
@@ -19,8 +19,9 @@ class LikesController < ApplicationController
     end
 
     def destroy
-
-        puts params
+        if @like.destroy
+            render json: {message: "you have unlike item"}
+        end
     end
 
     private
@@ -42,14 +43,8 @@ class LikesController < ApplicationController
     end
 
     def find_like
-        
+        @like = Like.find(params[:id])
     end
-
-    # def already_liked
-
-    #     @like_item.likes.exists?(user_id: current_user.id)
-
-    # end
 
     
 end
