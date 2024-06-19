@@ -21,7 +21,7 @@ class PostsController < ApplicationController
         puts @post.likes.count
         render json: {post: @post,
         comments: {total_comments: @post.comments.count},
-        likes: {total_likes: @post.likes.count}
+        likes: {total_likes: @post.likes.count}, status: :ok
     
     }
 

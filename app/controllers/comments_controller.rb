@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
     before_action :authenticate_user!
     before_action :find_post
-    before_action :find_comment, only: [:update, :destroy]
+    before_action :find_comment, only: [:update, :show, :destroy]
 
     def index
         render json: {comments: @post.comments}, status: :ok
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     end
 
     def show
-        render json: find_comment
+        render json: {comment: @comment, like: {total_likes: @comment.likes.count}}, status: :ok
     end
 
     def update
