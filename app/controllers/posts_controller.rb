@@ -18,7 +18,13 @@ class PostsController < ApplicationController
     end
 
     def show
-        render json: {post: @post}
+        puts @post.likes.count
+        render json: {post: @post,
+        comments: {total_comments: @post.comments.count},
+        likes: {total_likes: @post.likes.count}
+    
+    }
+
     end
 
 
