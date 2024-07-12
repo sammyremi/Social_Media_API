@@ -1,4 +1,4 @@
-class FeedsController < ApplicationController
+class Api::V1::FeedsController < ApplicationController
   before_action :authenticate_user!
 
 

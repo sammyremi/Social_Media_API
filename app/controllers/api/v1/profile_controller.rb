@@ -1,4 +1,4 @@
-class ProfileController < ApplicationController
+class Api::V1::ProfileController < ApplicationController
 
     before_action :authenticate_user!
 
