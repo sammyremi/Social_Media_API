@@ -17,12 +17,14 @@
 
 #create post with faker gem for random user
 
-# 20.times do 
-#     user = User.find(rand(1..20))
-#     title = Faker::Lorem.sentence(word_count: 20)
-#     post = Post.create(title: title[:title], user_id: user[:id])
-# end
+20.times do 
+    # user = User.find(rand(1..20))
+    title = Faker::Lorem.sentence(word_count: 20)
+    # post = Post.create(title: title[:title], user_id: user[:id])
+    puts title.class
+end
 
+#create comment on post with faker
 # for x in 1..20
 #     text = Faker::Lorem.sentence(word_count: 10)
 #     user = User.find(rand(1..20))
@@ -31,14 +33,14 @@
 # end
 
 
-20.times do 
-    user = User.find(rand(1..20))
-    post = Post.find(rand(1..20))
-    comment = Comment.find(rand(1..20))
+# 20.times do 
+#     user = User.find(rand(1..20))
+#     post = Post.find(rand(1..20))
+#     comment = Comment.find(rand(1..20))
 
-    like = Like.create(user_id: user.id, likeable_type: post)
-    like = Like.create(user_id: user.id, likeable_type: comment)
+#     like = Like.create(user_id: user.id, likeable_type: post)
+#     like = Like.create(user_id: user.id, likeable_type: comment)
 
-end
+# end
 
   
