@@ -1,3 +1,19 @@
+##### Functionality
+
+    ● User Management:
+    ○ Users can register and create accounts.
+    ○ Users can log in and authenticate themselves (With JWT session-based authentication).
+
+    ● Posts and Feed:
+    ○ Users can create posts with text and optional image/video attachments.
+    ○ Users can follow other users.
+    ○ Users can see posts from the people they follow in their personalized
+    feed.
+    ○ Implement pagination for retrieving large amounts of data efficiently.
+    ● Likes and Comments:
+    ○ Users can like and comment on posts created by others.
+    ○ Users can see the number of likes and comments on a post.
+
 ##### Prerequisites
 
 The setups steps expect following tools installed on the system.
