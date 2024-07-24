@@ -37,6 +37,7 @@ rails credentials:edit
 bundle install
 rails db:create
 rails db:migrate
+rails db:seed
 ```
 
 ##### 4. Start the Rails server
